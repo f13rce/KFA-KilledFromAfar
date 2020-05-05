@@ -1,3 +1,14 @@
+# Project-specific
+*.brk
+*.debug
+*.debug.ilk
+*.pdb
+*.sh
+*.log
+*.tlog
+*.lastbuildstate
+*.ipch
+
 # Prerequisites
 *.d
 

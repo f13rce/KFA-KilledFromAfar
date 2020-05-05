@@ -1,0 +1,87 @@
+MessageHeader
+uint16 size
+uint8 type
+uint8 opcode
+uint8 sequenceID
+uint16 connectionID
+end
+
+ACK
+uint16 connectionID
+uint8 id
+end
+
+AcknowledgeACK
+uint16 connectionID
+uint8 id
+end
+
+ConnectionRequest
+end
+
+ConnectionResponse
+uint8 response
+uint16 connectionID
+end
+
+Heartbeat
+uint16 connectionID
+uint8 id
+uint32 ping
+end
+
+Disconnect
+uint8 reason
+uint16 connectionID
+end
+
+JoinGameRequest
+string name
+end
+
+JoinGameResponse
+uint8 response
+end
+
+ChatMessage
+string message
+end
+
+SystemMessage
+string message
+end
+
+Play2DSound
+uint8 soundID
+end
+
+Play3DSound
+uint8 soundID
+float posX
+float posY
+float posZ
+end
+
+PlayerInput
+float move
+float strafe
+float rotX
+float rotY
+uint8 crouch
+uint8 shoot
+uint8 aimDownSight
+uint8 reload
+end
+
+Frame
+uint8 sequence
+uint32 originalSize
+string buffer
+end
+
+PixelColorID
+uint8 id
+float r
+float g
+float b
+end

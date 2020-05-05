@@ -1,0 +1,16 @@
+//Leadwerks Material File
+
+blendmode=0
+castshadows=0
+zsort=0
+cullbackfaces=1
+depthtest=1
+pickmode=0
+depthmask=1
+diffuse=0.392156869,0.317647070,0.0235294122,1.00000000
+specular=0.501960814,0.501960814,0.501960814,0.501960814
+alwaysuseshader=0
+roughness=1.0000000000000000
+mappingscale=1.00000000,1.00000000,1.00000000
+drawmode=-1
+

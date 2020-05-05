@@ -1,0 +1,348 @@
+Initting globals
+Opening f file
+Opening cpp file
+Opening h file
+Truncating output files
+After open
+Filepath: "/mnt/d/Projects/Leadwerks/KilledFromAfar/Source"
+Start of generation path="/mnt/d/Projects/Leadwerks/KilledFromAfar/Source/"
+
+Line
+Processing word: "MessageHeader"
+New message name="MessageHeader"
+
+Line
+Processing word: "uint16"
+Processing word: "size"
+New member type="uint16_t" name="size" array="no"
+
+Line
+Processing word: "uint8"
+Processing word: "type"
+New member type="uint8_t" name="type" array="no"
+
+Line
+Processing word: "uint8"
+Processing word: "opcode"
+New member type="uint8_t" name="opcode" array="no"
+
+Line
+Processing word: "uint8"
+Processing word: "sequenceID"
+New member type="uint8_t" name="sequenceID" array="no"
+
+Line
+Processing word: "uint16"
+Processing word: "connectionID"
+New member type="uint16_t" name="connectionID" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "ACK"
+New message name="ACK"
+
+Line
+Processing word: "uint16"
+Processing word: "connectionID"
+New member type="uint16_t" name="connectionID" array="no"
+
+Line
+Processing word: "uint8"
+Processing word: "id"
+New member type="uint8_t" name="id" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "AcknowledgeACK"
+New message name="AcknowledgeACK"
+
+Line
+Processing word: "uint16"
+Processing word: "connectionID"
+New member type="uint16_t" name="connectionID" array="no"
+
+Line
+Processing word: "uint8"
+Processing word: "id"
+New member type="uint8_t" name="id" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "ConnectionRequest"
+New message name="ConnectionRequest"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "ConnectionResponse"
+New message name="ConnectionResponse"
+
+Line
+Processing word: "uint8"
+Processing word: "response"
+New member type="uint8_t" name="response" array="no"
+
+Line
+Processing word: "uint16"
+Processing word: "connectionID"
+New member type="uint16_t" name="connectionID" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "Heartbeat"
+New message name="Heartbeat"
+
+Line
+Processing word: "uint16"
+Processing word: "connectionID"
+New member type="uint16_t" name="connectionID" array="no"
+
+Line
+Processing word: "uint8"
+Processing word: "id"
+New member type="uint8_t" name="id" array="no"
+
+Line
+Processing word: "uint32"
+Processing word: "ping"
+New member type="uint32_t" name="ping" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "Disconnect"
+New message name="Disconnect"
+
+Line
+Processing word: "uint8"
+Processing word: "reason"
+New member type="uint8_t" name="reason" array="no"
+
+Line
+Processing word: "uint16"
+Processing word: "connectionID"
+New member type="uint16_t" name="connectionID" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "JoinGameRequest"
+New message name="JoinGameRequest"
+
+Line
+Processing word: "string"
+Processing word: "name"
+New member type="std::string" name="name" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "JoinGameResponse"
+New message name="JoinGameResponse"
+
+Line
+Processing word: "uint8"
+Processing word: "response"
+New member type="uint8_t" name="response" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "ChatMessage"
+New message name="ChatMessage"
+
+Line
+Processing word: "string"
+Processing word: "message"
+New member type="std::string" name="message" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "SystemMessage"
+New message name="SystemMessage"
+
+Line
+Processing word: "string"
+Processing word: "message"
+New member type="std::string" name="message" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "Play2DSound"
+New message name="Play2DSound"
+
+Line
+Processing word: "uint8"
+Processing word: "soundID"
+New member type="uint8_t" name="soundID" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "Play3DSound"
+New message name="Play3DSound"
+
+Line
+Processing word: "uint8"
+Processing word: "soundID"
+New member type="uint8_t" name="soundID" array="no"
+
+Line
+Processing word: "float"
+Processing word: "posX"
+New member type="float" name="posX" array="no"
+
+Line
+Processing word: "float"
+Processing word: "posY"
+New member type="float" name="posY" array="no"
+
+Line
+Processing word: "float"
+Processing word: "posZ"
+New member type="float" name="posZ" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "PlayerInput"
+New message name="PlayerInput"
+
+Line
+Processing word: "float"
+Processing word: "move"
+New member type="float" name="move" array="no"
+
+Line
+Processing word: "float"
+Processing word: "strafe"
+New member type="float" name="strafe" array="no"
+
+Line
+Processing word: "float"
+Processing word: "rotX"
+New member type="float" name="rotX" array="no"
+
+Line
+Processing word: "float"
+Processing word: "rotY"
+New member type="float" name="rotY" array="no"
+
+Line
+Processing word: "uint8"
+Processing word: "crouch"
+New member type="uint8_t" name="crouch" array="no"
+
+Line
+Processing word: "uint8"
+Processing word: "shoot"
+New member type="uint8_t" name="shoot" array="no"
+
+Line
+Processing word: "uint8"
+Processing word: "aimDownSight"
+New member type="uint8_t" name="aimDownSight" array="no"
+
+Line
+Processing word: "uint8"
+Processing word: "reload"
+New member type="uint8_t" name="reload" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "Frame"
+New message name="Frame"
+
+Line
+Processing word: "uint8"
+Processing word: "sequence"
+New member type="uint8_t" name="sequence" array="no"
+
+Line
+Processing word: "string"
+Processing word: "buffer"
+New member type="std::string" name="buffer" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Line
+Line
+Processing word: "PixelColorID"
+New message name="PixelColorID"
+
+Line
+Processing word: "uint8"
+Processing word: "id"
+New member type="uint8_t" name="id" array="no"
+
+Line
+Processing word: "float"
+Processing word: "r"
+New member type="float" name="r" array="no"
+
+Line
+Processing word: "float"
+Processing word: "g"
+New member type="float" name="g" array="no"
+
+Line
+Processing word: "float"
+Processing word: "b"
+New member type="float" name="b" array="no"
+
+Line
+Processing word: "end"
+End message
+
+Finished generating code :)

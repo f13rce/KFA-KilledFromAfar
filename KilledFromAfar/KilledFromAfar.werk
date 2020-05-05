@@ -1,0 +1,13 @@
+Author=f13rce"
+MainSourceFile=""
+MultiLineCommentOpenToken="//"
+SingleLineCommentToken="//"
+CommandLine=""
+Copyright="f13rce"
+WindowsPublishPath=""
+AndroidPublishPath=""
+iOSPublishPath=""
+MacOSPublishPath=""
+Template="Blank Project"
+AppID=0
+DepotID=0
