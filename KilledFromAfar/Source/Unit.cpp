@@ -8,9 +8,7 @@ Unit::Unit(int32_t aID)
 	, m_pWeapon(std::make_unique<AssaultRifle>())
 	, m_pPlayer(nullptr)
 	, m_team(ETeam::Attackers)
-	, m_pCamera(nullptr)
 	, m_pTexture(nullptr)
-	, m_pMaterial(nullptr)
 	, m_canRender(false)
 	, m_cachedYRot(0.f)
 	, m_previousRotation(Vec3(0.f))
@@ -49,7 +47,7 @@ Unit::Unit(int32_t aID)
 	m_rotUpPivots.push_back(m_pModel->FindChild("Pivot_ArmRightUpper"));
 	m_defaultRotations.push_back(m_rotUpPivots.back()->GetRotation(false).x);
 
-	m_pHead = m_pModel->FindChild("Pivot_Head");
+	m_pHead = m_pModel->FindChild("Head");
 	m_rotUpPivots.push_back(m_pHead);
 	m_defaultRotations.push_back(m_rotUpPivots.back()->GetRotation(false).x);
 
@@ -74,27 +72,7 @@ void Unit::EnableRendering()
 	// DON'T ALLOW RENDERERING FOR UNITS/PLAYERS THAT DON'T NEED IT - LIKE AI
 	std::cout << "Enabling rendering for Unit..." << std::endl;
 	m_canRender = true;
-	m_pCamera = Camera::Create();
 	m_pTexture = Texture::Create(RENDER_WIDTH, RENDER_HEIGHT);
-	m_pCamera->SetClearColor(Vec4(163.f / 255.f, 205.f / 255.f, 224.f / 255.f, 1.f));
-
-	Entity* pMount = m_pModel->FindChild("Head");
-	m_pCamera->SetPosition(pMount->GetPosition(true), true);
-	m_pCamera->SetRotation(pMount->GetRotation(true), true);
-	m_pCamera->SetParent(pMount);
-	m_pCamera->SetFOV(s_cNormalFOV);
-
-	m_pMaterial = Material::Create();
-	m_pMaterial->SetShader("Shaders/Model/Diffuse.shader");
-	m_pMaterial->SetTexture(m_pTexture);
-
-	m_pCamera->SetRenderTarget(m_pTexture);
-
-	Model* pTest = Model::Box();
-	pTest->SetMaterial(m_pMaterial);
-	pTest->SetPosition(Vec3(7.f, 1.f, -26.f), true);
-	pTest->SetCollisionType(Collision::None);
-	pTest->SetScale(0.0001f);
 }
 
 void Unit::SetInput(const Player::Input& acInput)
@@ -217,7 +195,7 @@ int32_t Unit::GetID() const
 
 Texture* Unit::GetRenderTexture()
 {
-	return m_pMaterial->GetTexture();
+	return m_pTexture;
 }
 
 Player::EPlayerType Unit::GetPlayerType() const
@@ -299,7 +277,7 @@ void Unit::ApplyInput()
 		m_pWeapon->Reload();
 	}
 
-	if (m_pCamera)
+	/*if (m_pCamera)
 	{
 		if (m_input.aimDownSight)
 		{
@@ -309,7 +287,7 @@ void Unit::ApplyInput()
 		{
 			m_pCamera->SetFOV(s_cNormalFOV);
 		}
-	}
+	}*/
 }
 
 void Unit::OnDeath()

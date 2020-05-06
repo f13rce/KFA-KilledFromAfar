@@ -27,6 +27,7 @@ namespace Net13
 		void Update();
 
 		// Connectivity
+		void SetSocketPort(uint16_t aPort);
 		void ConnectTo(const char* apIP, uint16_t aPort);
 		void Disconnect();
 

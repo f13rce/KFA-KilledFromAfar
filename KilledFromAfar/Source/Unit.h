@@ -90,9 +90,7 @@ protected:
 	std::vector<Stats> m_modifiers;
 
 	bool m_canRender;
-	Camera* m_pCamera;
 	Texture* m_pTexture;
-	Material* m_pMaterial;
 	static constexpr float s_cNormalFOV = 65.f;
 	static constexpr float s_cZoomFOV = 45.f;
 

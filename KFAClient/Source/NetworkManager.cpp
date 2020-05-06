@@ -12,7 +12,7 @@ NetworkManager::NetworkManager(uint16_t aPort, bool aIsServer)
 {
 	g_Network = this;
 
-	CreateSocket(aPort);
+	Net13::NetworkManager::CreateSocket(aPort);
 
 	if (aIsServer)
 	{
@@ -49,6 +49,11 @@ void NetworkManager::Update()
 	m_NetworkSimulator.Update();
 #endif
 	m_pUDPSocket->Update();
+}
+
+void NetworkManager::SetSocketPort(uint16_t aPort)
+{
+	CreateSocket(aPort);
 }
 
 void NetworkManager::ConnectTo(const char* apIP, uint16_t aPort)

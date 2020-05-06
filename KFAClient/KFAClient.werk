@@ -1,6 +1,6 @@
 Author=f13rce"
 MainSourceFile=""
-MultiLineCommentOpenToken="/*"
+MultiLineCommentOpenToken="//"
 SingleLineCommentToken="//"
 CommandLine=""
 Copyright="f13rce"

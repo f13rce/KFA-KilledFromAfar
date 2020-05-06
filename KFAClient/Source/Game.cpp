@@ -25,9 +25,6 @@ Game::Game()
 
 	m_gameChat = GameChat(m_pContext);
 
-	RegisterCustomNetworkMessages();
-	m_networkManager.SetTickRate(144);
-
 	m_input->aimDownSight = false;
 	m_input->crouch = false;
 	m_input->move = 0.f;
@@ -47,6 +44,10 @@ Game::~Game()
 
 void Game::Init()
 {
+	m_networkManager.SetSocketPort(13337 + rand() % (UINT16_MAX / 2));
+	RegisterCustomNetworkMessages();
+	m_networkManager.SetTickRate(144);
+
 	std::cout << "Finished initializing game!" << std::endl;
 }
 
@@ -202,6 +203,8 @@ void Game::UpdateInput()
 	m_input->strafe = (m_pWindow->KeyDown(Key::D) ? 1.f : 0.f) - (m_pWindow->KeyDown(Key::A) ? 1.f : 0.f);
 	m_input->reload = m_pWindow->KeyDown(Key::R);
 	m_input->shoot = m_pWindow->MouseDown(1);
+
+	m_pWindow->HideMouse();
 
 	Vec3 mousePos = m_pWindow->GetMousePosition();
 

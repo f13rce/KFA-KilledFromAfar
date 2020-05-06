@@ -55,6 +55,8 @@ void AIPlayer::UpdateWaypoint()
 
 			if (m_findPathInterval <= 0.f)
 			{
+				m_findPathInterval = s_cFindPathInterval;
+
 				Entity* pWaypoint = (*m_pObjectives)[rand() % m_pObjectives->size()];
 
 				if (g_pWorld->navmesh->FindPath(m_pSelf->GetPosition(true), pWaypoint->GetPosition(true), m_pathToObjective))
@@ -63,16 +65,13 @@ void AIPlayer::UpdateWaypoint()
 					m_currentObjectiveState = EObjectiveState::MovingTo;
 					m_findDifferentPathInterval = s_cFindDifferentPathInterval;
 					m_previousDistance = 99999.f;
+					m_distanceInterval = s_cDistanceCheckInterval;
 				}
 				else
 				{
 					m_input.move = rand() % 2 == 0 ? 1.f : -1.f;
 					m_input.strafe = rand() % 2 == 0 ? 1.f : -1.f;
 				}
-			}
-			else
-			{
-				m_findPathInterval = s_cFindPathInterval;
 			}
 			
 			break;

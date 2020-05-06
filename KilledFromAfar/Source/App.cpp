@@ -5,6 +5,7 @@
 
 App::App()
 	: m_pCamera(nullptr)
+	, m_pMaterial(nullptr)
 	, m_pTexture(Texture::Create(320, 240))
 	, m_timeTillRender(0.f)
 	, m_currentSecond(0.f)
@@ -49,6 +50,17 @@ bool App::Start()
 	m_pCamera->SetPosition(Vec3(0.f, 2.f, -30.f));
 	m_pCamera->SetClearColor(Vec4(163.f / 255.f, 205.f / 255.f, 224.f / 255.f, 1.f));
 
+	m_pMaterial = Material::Create();
+	m_pMaterial->SetShader("Shaders/Model/Diffuse.shader");
+
+	Model* pRenderBox = Model::Box();
+	pRenderBox->SetMaterial(m_pMaterial);
+	pRenderBox->SetPosition(m_pCamera->GetPosition(true), true);
+	pRenderBox->Move(Vec3(0.f, 0.f, 1.f), false);
+	pRenderBox->SetCollisionType(Collision::None);
+	pRenderBox->SetScale(0.0001f);
+	pRenderBox->SetParent(m_pCamera);
+
 	std::cout << "Syncing time..." << std::endl;
 	Time::Update();
 
@@ -85,15 +97,26 @@ bool App::Loop()
 			end = std::chrono::steady_clock::now();
 			float physicsTime = float(std::chrono::duration_cast<chrono::milliseconds>(end - start).count());
 
-			start = std::chrono::steady_clock::now();
-			g_pWorld->Update();
-			end = std::chrono::steady_clock::now();
-			float worldUpdateTime = float(std::chrono::duration_cast<chrono::milliseconds>(end - start).count());
+			float worldUpdateTime = 0.f;
+			float worldRenderTime = 0.f;
+			for (auto i = 0; i < Game::s_networkPlayers.size(); ++i)
+			{
 
-			start = std::chrono::steady_clock::now();
-			g_pWorld->Render();
-			end = std::chrono::steady_clock::now();
-			float worldRenderTime = float(std::chrono::duration_cast<chrono::milliseconds>(end - start).count());
+				m_pCamera->SetPosition(Game::s_networkPlayers[i].GetUnit()->GetHead()->GetPosition(true), true);
+				m_pCamera->SetRotation(Game::s_networkPlayers[i].GetUnit()->GetHead()->GetRotation(true), true);
+				m_pCamera->SetRenderTarget(Game::s_networkPlayers[i].GetUnit()->GetRenderTexture());
+				m_pMaterial->SetTexture(Game::s_networkPlayers[i].GetUnit()->GetRenderTexture());
+
+				start = std::chrono::steady_clock::now();
+				g_pWorld->Update();
+				end = std::chrono::steady_clock::now();
+				worldUpdateTime += float(std::chrono::duration_cast<chrono::milliseconds>(end - start).count());
+
+				start = std::chrono::steady_clock::now();
+				g_pWorld->Render();
+				end = std::chrono::steady_clock::now();
+				worldRenderTime += float(std::chrono::duration_cast<chrono::milliseconds>(end - start).count());
+			}
 
 			start = std::chrono::steady_clock::now();
 			m_game.SendPlayerData();

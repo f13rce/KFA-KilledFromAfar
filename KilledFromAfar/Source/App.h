@@ -17,6 +17,7 @@ private:
 	Game m_game;
 	Camera* m_pCamera;
 
+	Material* m_pMaterial;
 	Texture* m_pTexture;
 
 	static constexpr float s_cTickRate = 60.0f;

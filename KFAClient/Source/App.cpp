@@ -14,6 +14,8 @@ bool App::Start()
 	Time::Update();
 	m_previousTime = std::chrono::steady_clock::now();
 
+	srand(std::chrono::steady_clock::now().time_since_epoch().count());
+
 	std::cout << "Initializing game..." << std::endl;
 	m_game.Init();
 

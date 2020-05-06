@@ -8,6 +8,12 @@
 *.tlog
 *.lastbuildstate
 *.ipch
+*.idk
+*.bak1
+*.db
+*.opendb
+*.suo
+*.VC.db
 
 # Prerequisites
 *.d
