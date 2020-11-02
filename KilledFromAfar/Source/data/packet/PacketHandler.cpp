@@ -3,6 +3,8 @@
 #include "data\messages\NetcodeMessages.h"
 #include "NetworkManager.h"
 
+#include <iostream>
+
 using namespace Net13;
 
 PacketHandler::PacketHandler()
@@ -22,7 +24,8 @@ void PacketHandler::RegisterMessage(std::unique_ptr<Messages::Message> apMessage
 	}
 	else
 	{
-		throw std::system_error(0, std::system_category(), "Message OpCode already in use!");
+		std::cerr << "Message OpCode already in use!" << std::endl;
+		//throw std::system_error(0, std::system_category(), "Message OpCode already in use!");
 	}
 }
 
